@@ -7,7 +7,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "lint:css": "stylelint src/**/*.css"
+    "lint:css": "stylelint src/**/*.css",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -32,6 +33,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.5",
     "postcss": "^8.4.8",
     "prettier": "^2.5.1",
     "stylelint": "^14.5.3",
