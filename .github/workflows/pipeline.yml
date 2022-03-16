@@ -1,0 +1,39 @@
+name: Krypto CI/CD pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Use Yarn with cache 🔧
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - name: Install dependencies 📌
+        run: yarn --frozen-lockfile
+      - name: Build with Vite ⚡️
+        run: yarn build
+      - name: Run all tests 🤡
+        run: yarn test
+
+  deploy:
+    if: ${{ github.event == 'push' }}
+    runs-on: ubuntu-latest
+    needs: build_test
+    environment: Production
+    env:
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - name: Deploy to Netlify 🚀
+        run: ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=build
+
+
