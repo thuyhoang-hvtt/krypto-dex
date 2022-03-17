@@ -2,8 +2,10 @@
   "env": {
     "browser": true,
     "es6": true,
+    "es2021": true,
     "node": true,
-    "jest": true
+    "jest": true,
+    "mocha": true
   },
   "parserOptions": {
     "ecmaFeatures": {
@@ -92,7 +94,7 @@
   "settings": {
     "import/resolver": {
       "typescript": {
-        "project": "."
+        "project": ["workspaces/*"]
       }
     },
     "react": {
