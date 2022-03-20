@@ -15,8 +15,20 @@
     "clean": "lerna run clean",
     "build": "yarn core:compile && yarn client:build",
     "test": "lerna run test",
+    "format": "prettier --write",
     "lint": "eslint --ignore-path .gitignore --ignore-path .eslintignore \"workspaces/**/*.+(ts|js|tsx)\"",
     "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css}": [
+      "yarn format"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "yarn lint --fix"
+    ],
+    "*.css": [
+      "stylelint --fix"
+    ]
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
