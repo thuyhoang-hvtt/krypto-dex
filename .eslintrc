@@ -50,12 +50,7 @@
     ],
     "react/function-component-definition": "off",
     "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
-    "no-restricted-syntax": [
-      "error",
-      "FunctionExpression",
-      "WithStatement",
-      "BinaryExpression[operator='in']"
-    ],
+    "no-restricted-syntax": ["error", "WithStatement", "BinaryExpression[operator='in']"],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off"
   },

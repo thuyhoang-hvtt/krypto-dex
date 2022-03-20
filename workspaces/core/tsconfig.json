@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "@scripts/*": ["./scripts/*"],
+      "@test/*": ["./test/*"],
+      "@typechain/*": ["./typechain-types/*"],
+      "@utils/*": ["./utils/*"]
+    }
+  },
+  "include": ["./scripts", "./test", "./typechain-types", "./utils"],
+  "files": ["./hardhat.config.ts"]
+}
