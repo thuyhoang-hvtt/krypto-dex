@@ -9,8 +9,11 @@
     "client:dev": "yarn workspace @krypto/client run dev",
     "client:build": "yarn workspace @krypto/client run build",
     "client:preview": "yarn workspace @krypto/client run preview",
+    "client:test": "yarn workspace @krypto/client run test",
+    "core:compile": "yarn workspace @krypto/core run compile",
+    "core:test": "yarn workspace @krypto/core run test",
     "clean": "lerna run clean",
-    "build": "lerna run build",
+    "build": "yarn core:compile && yarn client:build",
     "test": "lerna run test",
     "lint": "eslint --ignore-path .gitignore --ignore-path .eslintignore \"workspaces/**/*.+(ts|js|tsx)\"",
     "prepare": "husky install"
