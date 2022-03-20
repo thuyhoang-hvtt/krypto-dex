@@ -1,0 +1,29 @@
+name: Krypto CI pipeline on PR (Hardhat)
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'workspace/core/**'
+
+jobs:
+  hardhat_compile_lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Use Yarn with cache 🔧
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - name: Install dependencies 📌
+        run: yarn --frozen-lockfile
+      - name: Lint Check 🍱
+        run: yarn lint
+      - name: Compile smart contract with Hardhat 👷🏻
+        run: yarn core:compile
+      - name: Run tests on smart contracts 🤡
+        run: yarn core:test
+
+
