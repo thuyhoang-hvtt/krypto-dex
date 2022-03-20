@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - 'workspace/core/**'
+      - 'workspaces/core/**'
 
 jobs:
   hardhat_compile_lint:
