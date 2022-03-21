@@ -10,6 +10,7 @@
     "client:build": "yarn workspace @krypto/client run build",
     "client:preview": "yarn workspace @krypto/client run preview",
     "client:test": "yarn workspace @krypto/client run test",
+    "core:node": "yarn workspace @krypto/core hardhat node",
     "core:compile": "yarn workspace @krypto/core run compile",
     "core:test": "yarn workspace @krypto/core run test",
     "clean": "lerna run clean",
