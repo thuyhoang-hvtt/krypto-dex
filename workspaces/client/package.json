@@ -19,20 +19,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|jsx)\"",
     "lint:css": "stylelint src/**/*.css",
     "test": "echo \"All tests passed! Happy Test!\""
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,css}": [
-      "prettier --write"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix --ext js,jsx,ts,tsx"
-    ],
-    "*.css": [
-      "stylelint --fix"
-    ]
   },
   "dependencies": {
     "@krypto/core": "*",
