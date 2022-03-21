@@ -21,8 +21,7 @@
     "preview": "vite preview",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "lint:css": "stylelint src/**/*.css",
-    "test": "echo \"All tests passed! Happy Test!\"",
-    "prepare": "husky install"
+    "test": "echo \"All tests passed! Happy Test!\""
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [
@@ -36,6 +35,8 @@
     ]
   },
   "dependencies": {
+    "@krypto/core": "*",
+    "ethers": "^5.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1"
