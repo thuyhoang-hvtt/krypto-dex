@@ -21,6 +21,8 @@ jobs:
         run: yarn --frozen-lockfile
       - name: Lint Check 🍱
         run: yarn lint
+      - name: Compile Smart Contract 🍱
+        run: yarn core:compile
       - name: Build with Vite ⚡️
         run: yarn client:build
       - name: Run tests on Vite app 🤡
