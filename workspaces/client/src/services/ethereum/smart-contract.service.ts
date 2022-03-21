@@ -59,10 +59,9 @@ class SmartContract implements ISmartContract {
 
       const decimals = await this.instance.decimals();
       const sourceBalance = await this.instance.balanceOf(source);
-      const parsedSourceBalance = ethers.utils.parseUnits(sourceBalance.toString(), decimals);
       const parsedAmount = ethers.utils.parseUnits(amount, decimals);
 
-      if (parsedSourceBalance < parsedAmount) {
+      if (sourceBalance.lt(parsedAmount)) {
         throw Error('Too Greedy! Tham Lam :)');
       }
 
