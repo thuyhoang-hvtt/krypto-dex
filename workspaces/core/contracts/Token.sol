@@ -25,7 +25,7 @@ contract Token {
     address source;
     address destination;
     uint256 amount;
-    string messasge;
+    string message;
     uint256 timestamp;
     string keyword;
   }
