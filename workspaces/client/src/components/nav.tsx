@@ -3,9 +3,16 @@ import { HiMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 
 import logo from '@/assets/logo.png';
+import { useAccount, useMetaMask } from '@/context/smart-contract.context';
 
 const NavBar = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
+  const { walletAddress } = useAccount();
+  const { disconnectFromMetaMask } = useMetaMask();
+
+  const handleDisconnectWallet = () => {
+    disconnectFromMetaMask?.();
+  };
 
   return (
     <nav className="w-full flex justify-between items-center p-4 md:px-32">
@@ -18,6 +25,15 @@ const NavBar = () => {
             {item}
           </li>
         ))}
+        {walletAddress && (
+          <button
+            type="button"
+            className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]"
+            onClick={handleDisconnectWallet}
+          >
+            Sign out
+          </button>
+        )}
       </ul>
       <div className="flex relative md:hidden">
         {!toggleMenu && (

@@ -1,11 +1,13 @@
 import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from 'react-icons/bs';
+import { anonymizeAddress } from '@/utils/address';
 
 interface IProps {
-  walletAddress?: string;
+  walletAddress: string;
+  tokenName?: string;
 }
 
-function EthCard({ walletAddress }: IProps) {
+function DigitalCard({ walletAddress, tokenName }: IProps) {
   return (
     <div className="p-3 flex justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card .white-glassmorphism ">
       <div className="flex justify-between flex-col w-full h-full">
@@ -16,12 +18,12 @@ function EthCard({ walletAddress }: IProps) {
           <BsInfoCircle fontSize={17} color="#fff" />
         </div>
         <div>
-          <p className="text-white font-light text-sm">{walletAddress ?? '0x123456...3210'}</p>
-          <p className="text-white font-semibold text-lg mt-1">Ethereum</p>
+          <p className="text-white font-light text-sm">{anonymizeAddress(walletAddress)}</p>
+          <p className="text-white font-semibold text-lg mt-1">{tokenName || 'Ethereum'}</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default EthCard;
+export default DigitalCard;
