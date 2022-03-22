@@ -77,30 +77,6 @@ class SmartContract implements ISmartContract {
       const tx = await signer.sendTransaction({ to: this.abiAddress, data: txData });
       await tx.wait();
 
-      /* ------ Send transaction to send ETH -------
-      // get a signer wallet!
-      const signer = this.provider.getSigner();
-
-      // Get nonce
-      const txNonce = await this.provider.getTransactionCount(source, 'latest');
-
-      // Get gas price
-      const txGasPrice = await this.provider.getGasPrice();
-
-      // Creating a transaction param
-      const txParams = {
-        from: source,
-        to: destination,
-        value: parsedAmount._hex,
-        nonce: txNonce,
-        gasLimit: ethers.utils.hexlify(21000),
-        gasPrice: ethers.utils.hexlify(parseInt(txGasPrice.toString(), 10)),
-      };
-
-      const tx = await signer.sendTransaction(txParams);
-      await tx.wait();
-      */
-
       alert('Completed transaction successfully!');
     } catch (exception: any) {
       alert(exception.message);
